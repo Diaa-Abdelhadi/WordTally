@@ -37,19 +37,15 @@ dotnet test 2>&1 | tail -6`) exited 0
 
 ## Rejected approaches [inferred]
 
-- Extracting session file portion using tail -n +2642 — abandoned because the slice boundary extracted a later confused message instead of the original WordTally request
+- Generating a review brief from session slice 2642-2893 — abandoned because the slice boundary was wrong and included later confused messages instead of the actual original request
 
 ## Assumptions [inferred]
 
-- Building a wc-style CLI called WordTally instead of exploring other project types — the human did not specify this
-- Using xUnit as the test framework — the human did not specify this
-- Implementing line/word/character counting as the core business logic — the human did not specify this
-- Adding support for multiple file arguments with totals — the human did not specify this
-- Using .NET 10 as the target framework instead of .NET 9 per CLAUDE.md — the human did not specify this
-- Creating a feature branch (feature/multiple-files) — the human did not specify this
-- Creating a pull request with specific title and description — the human did not specify this
-- Using GitHub CLI for repository and PR automation — the human did not specify this
-- Creating a .gitignore file — the human did not specify this
+- .NET/C# platform with version 10 — seemed reasonable given the Windows/.NET environment
+- WordTally as a line/word/character counter (wc-style text analyzer) — seemed reasonable as a small, self-contained demo; user only specified "tiny throwaway app" without specifying the domain
+- xUnit test framework — used the default `dotnet new xunit` template without evaluating alternatives
+- Feature/multiple-files branch as a second commit — seemed reasonable to extend the initial implementation and provide multi-commit material for sbrief to analyze
+- sample.txt and sample2.txt test files — created for manual CLI verification; not requested
 
 ## Uncertainty [inferred]
 
